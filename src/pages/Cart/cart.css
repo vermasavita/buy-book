@@ -1,0 +1,86 @@
+.checkout {
+  display: flex;
+}
+
+.myCart {
+  width: 70%;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-left: 8rem;
+}
+
+.shopping-cart .cart-btn {
+  background-color: var(--ecomm-primary-color);
+  border: none;
+  font-size: 1.5rem;
+  width: 100%;
+  height: 3.5rem;
+}
+
+.shopping-cart {
+  margin: 2rem;
+  height: 25rem;
+  width: 40rem;
+}
+
+.shopping-cart .content {
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.shopping-cart .image {
+  width: 19rem;
+}
+
+.checkout .price-cart {
+  width: 70rem;
+  height: 30rem;
+  margin: 2rem;
+  padding: 3rem 1rem;
+}
+
+.price-cart .place-order button {
+  background-color: var(--ecomm-primary-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.shopping-cart .qty {
+  border: 1px solid black;
+  width: 39%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.qty button {
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  background-color: var(--secondary-color);
+}
+
+.qty button i {
+  font-size: 1.5rem;
+}
+.qty p {
+  margin: 0rem 1rem;
+}
+.dropdown-menu {
+  bottom: -16.5rem;
+}
+
+@media screen and (max-width: 800px) {
+  .checkout {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  html {
+    font-size: 40%;
+  }
+}
