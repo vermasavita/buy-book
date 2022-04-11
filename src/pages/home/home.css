@@ -1,0 +1,30 @@
+.hero-banner-container {
+    min-height: 10rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 2rem initial 1.5rem initial;
+  }
+
+  .hero-banner-container img {
+    overflow: hidden;
+    object-fit: cover;
+  }
+
+  .container .product-category{
+      display: flex;
+      margin-top: 4rem;
+  }
+
+  .image-cont{
+      width: 100%;
+      height: 100%;
+  }
+
+  .image-cont img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }

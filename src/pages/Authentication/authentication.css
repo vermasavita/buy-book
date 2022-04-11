@@ -1,0 +1,39 @@
+.login-container {
+    margin-top: 12rem;
+  }
+  
+  .login-container .login-btns .login {
+    color: var(--secondary-color);
+    background-color: var(--ecomm-primary-color);
+  }
+  
+  .login-credential .login-email,
+  .login-credential .login-password,
+  .login-credential .confirm-password {
+    font-size: 1.2rem;
+    position: relative;
+  }
+  
+  
+  .login-credential .confirm-password {
+    margin-top: 2rem;
+  }
+  
+  @media screen and (max-width: 1200px) {
+    .login-container {
+      width: 50%;
+    }
+  }
+  
+  @media screen and (max-width: 900px) {
+    .login-container {
+      width: 70%;
+    }
+  }
+  
+  @media screen and (max-width: 500px) {
+    .login-container {
+      width: 90%;
+    }
+  }
+  

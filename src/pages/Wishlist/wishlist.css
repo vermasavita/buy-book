@@ -1,0 +1,43 @@
+h1 {
+  text-align: center;
+  margin-top: 3rem;
+}
+p {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 2rem;
+  margin-top: 4rem;
+  width: 100%;
+}
+
+.grid-container .cart {
+  width: 26rem;
+  margin: auto;
+  transition: all 0.3s ease;
+  background-color: var(--secondary-color);
+}
+
+.grid-container .cart .img-container .product-action-icon li {
+  background: none;
+  margin: 0;
+}
+
+.grid-container .cart .img-container .product-action-icon li i {
+  font-size: 2rem;
+}
+
+.grid-container .cart .add-to-cart {
+  background-color: var(--ecomm-primary-color);
+}
+
+.grid-container .cart:hover {
+  transform: scale(1.04);
+}
+
+.dropdown-menu {
+  bottom: -16.5rem;
+}
