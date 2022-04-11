@@ -6,7 +6,9 @@ import { Wishlist } from './pages/Wishlist/Wishlist';
 import { Login} from './pages/Authentication/Login';
 import { Signup} from './pages/Authentication/SignUp';
 import { Home } from "./pages/home/Home";
-// import logo from "./logo.png";
+import {Navbar } from './components/navbar/Navbar';
+import { Footer } from './components/footer/Footer';
+ // import logo from "./logo.png";
 
 function App() {
   return (

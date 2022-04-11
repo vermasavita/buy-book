@@ -1,7 +1,5 @@
 import './product-listing.css';
 import { Filter } from '../Products/components/Filter';
-import { Navbar } from '../../components/navbar/Navbar';
-import { Footer} from '../../components/footer/Footer';
 import { ProductCart } from './components/ProductCard';
 
 const ProductListing = () => {

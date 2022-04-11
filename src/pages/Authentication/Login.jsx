@@ -1,4 +1,3 @@
-import { Navbar } from "../../components/navbar/Navbar";
 import './authentication.css';
 import { Link } from 'react-router-dom';
 
