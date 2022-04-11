@@ -5,6 +5,11 @@ import { Footer } from "./../../components/footer/Footer";
 import { ProductCard } from "./components/ProductCard";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { sortByPrice } from "../../utils/filter/sort-by-price";
+import { priceFilter } from "../../utils/filter/price-filter";
+import { ratingFilter } from "../../utils/filter/rating-filter";
+import { categoryFilter } from "../../utils/filter/category-filter";
+import { useFilter } from "../../hooks/context/filter-context";
 
 const ProductListing = () => {
   const [products, setProducts] = useState([]);
@@ -24,13 +29,20 @@ const ProductListing = () => {
   };
 
   useEffect(() => loadProductData(), []);
+
+  const { filterState } = useFilter();
+ const sortPrice = sortByPrice(filterState, products)
+  const rating = ratingFilter(filterState, sortPrice);
+  const priceRange = priceFilter(filterState, rating);
+  const category = categoryFilter(filterState, priceRange);
+
   return (
     <div className="container">
       <Navbar />
       <div className="product-listing">
         <Filter />
         <div className="grid-container">
-          {products.map((product) => (
+          {category.map((product) => (
             <ProductCard
               productId={product._id}
               productImg={product.image}
