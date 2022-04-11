@@ -8,11 +8,10 @@ import { Signup} from './pages/Authentication/SignUp';
 import { Home } from "./pages/home/Home";
 import {Navbar } from './components/navbar/Navbar';
 import { Footer } from './components/footer/Footer';
- // import logo from "./logo.png";
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Routes>
       <Route path="/" element={<Home />}/>
         <Route path="products" element={<ProductListing />}/>
