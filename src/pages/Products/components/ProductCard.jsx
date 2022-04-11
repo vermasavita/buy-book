@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const ProductCart = ({
+const ProductCard = ({
   productImg,
   productTitle,
   productAuthor,
@@ -34,4 +34,4 @@ const ProductCart = ({
   );
 };
 
-export { ProductCart };
+export { ProductCard };
