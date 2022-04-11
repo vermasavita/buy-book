@@ -1,6 +1,8 @@
 import { ProductCategory } from "./components/ProductCategory";
 import './home.css'
 import './../Cart/cart.css'
+import { Navbar} from './../../components/navbar/Navbar';
+import {Footer} from './../../components/footer/Footer';
 
 const Home = () => {
   return (

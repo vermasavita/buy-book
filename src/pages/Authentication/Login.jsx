@@ -1,4 +1,6 @@
 import './authentication.css';
+import {Navbar } from './../../components/navbar/Navbar';
+import { Footer} from './../../components/footer/Footer';
 import { Link } from 'react-router-dom';
 
 const Login = () => {
@@ -40,6 +42,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

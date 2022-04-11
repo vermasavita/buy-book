@@ -1,5 +1,7 @@
 import { CartItem } from "./components/CartItem";
 import { Bill } from "./components/Biil";
+import { Navbar} from './../../components/navbar/Navbar';
+import {Footer} from './../../components/footer/Footer';
 import "./cart.css";
 
 const Cart = () => {
