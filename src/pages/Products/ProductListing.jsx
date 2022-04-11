@@ -3,23 +3,25 @@ import { Filter } from "../Products/components/Filter";
 import { Navbar } from "./../../components/navbar/Navbar";
 import { Footer } from "./../../components/footer/Footer";
 import { ProductCard } from "./components/ProductCard";
-import axios  from "axios";
+import axios from "axios";
 import { useState, useEffect } from "react";
 
 const ProductListing = () => {
   const [products, setProducts] = useState([]);
-  console.log(products)
 
   const productApi = "/api/products";
   const loadProductData = async () => {
     try {
       const response = await axios.get(productApi);
-      setProducts(response.data.products);
+      if (response.status === 200) {
+        setProducts(response.data.products);
+      } else {
+        throw new Error();
+      }
     } catch (error) {
       console.log(error);
     }
   };
-
 
   useEffect(() => loadProductData(), []);
   return (
