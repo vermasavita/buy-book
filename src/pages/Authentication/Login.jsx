@@ -1,46 +1,126 @@
-import './authentication.css';
-import {Navbar } from './../../components/navbar/Navbar';
-import { Footer} from './../../components/footer/Footer';
-import { Link } from 'react-router-dom';
+import "./authentication.css";
+import { Navbar } from "./../../components/navbar/Navbar";
+import { Footer } from "./../../components/footer/Footer";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../hooks/context/auth-context";
+import { useState } from "react";
 
 const Login = () => {
+  const navigate = useNavigate();
+  const { authDispatch } = useAuth();
+  const [userCredential, setUserCredential] = useState({
+    email: "",
+    password: "",
+  });
+
+  const guestUserCredential = {
+    email: "adarshbalika@gmail.com",
+    password: "adarshbalika",
+  };
+  const changeHandler = (e) => {
+    const { id, value } = e.target;
+    setUserCredential({ ...userCredential, [id]: value });
+  };
+
+  const guestUserCredentialHandler = (event) => {
+    event.preventDefault();
+    setUserCredential(guestUserCredential);
+  };
+
+  const loginHandler = async (event) => {
+    event.preventDefault();
+    try {
+      const repsonse = await axios.post("api/auth/login", userCredential);
+      if (repsonse.status === 200) {
+        localStorage.setItem("token", repsonse.data.encodedToken);
+        localStorage.setItem(
+          "user",
+          JSON.stringify(repsonse.data.foundUser)
+        );
+
+        authDispatch({
+          type: "LOGIN",
+          payload: {
+            userCredential: repsonse.data.foundUser,
+            token: repsonse.data.encodedToken,
+          },
+        });
+
+        navigate("/");
+      } else if (repsonse.status === 401) {
+        throw new Error("Enter correct password");
+      } else if (response.status === 404) {
+        throw new Error("Email not found");
+      } else if (response.status === 500) {
+        throw new Error("Server error");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="container">
-        <Navbar/>
+      <Navbar />
       <div className="box">
-        <div className="login-container">
+        <form className="login-container" method="post">
           <h1>Login</h1>
           <div className="login-credential">
             <div className="login-email">
               <label htmlFor="email">Email address *</label>
-              <input type="email" name="" id="email" />
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="adarshbalika@gmail.com"
+                value={userCredential.email}
+                required
+                onChange={changeHandler}
+              />
             </div>
 
             <div className="login-password">
               <label htmlFor="password">Password *</label>
-              <input type="password" name="" id="password" />
-              Wrong password. Try again.
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="**********"
+                value={userCredential.password}
+                required
+                onChange={changeHandler}
+              />
             </div>
           </div>
 
           <div className="con">
             <div className="remember-me">
-              <input type="checkbox" id="remember-box" />
+              <input type="checkbox" id="remember-box" required />
               <label htmlFor="remember-box">Remember me</label>
             </div>
 
-            <a href="#">Forgot your password?</a>
+            <Link to="/" className="forgot-pwd">
+              Forgot your password?
+            </Link>
           </div>
 
           <div className="login-btns">
-            <Link to='/' className="login">
+            <button
+              className="new-account"
+              onClick={guestUserCredentialHandler}
+            >
+              Add Guest Credential
+            </button>
+            <button className="login" type="submit" onClick={loginHandler}>
               Login
-            </Link>
-            <Link to='/' className="new-account">
-              Create New Account <strong></strong>
-            </Link>
+            </button>
           </div>
-        </div>
+
+          <Link to="/signup" className="new-account">
+            Create New Account <strong>&#62;</strong>
+          </Link>
+        </form>
       </div>
       <Footer />
     </div>
