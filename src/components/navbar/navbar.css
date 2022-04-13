@@ -54,7 +54,11 @@ html {
 .dropdown li {
   list-style: none;
 }
-
+.link-btn{
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+}
 .dropdown-menu {
   display: none;
   width: 20rem;

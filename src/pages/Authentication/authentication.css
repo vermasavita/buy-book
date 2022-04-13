@@ -1,39 +1,73 @@
 .login-container {
-    margin-top: 12rem;
+  margin-top: 12rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.login-credential .login-email label,
+.login-credential .login-password label,
+.login-credential .confirm-password label {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--black-color);
+}
+.login-credential .login-email input,
+.login-credential .login-password input,
+.login-credential .confirm-password input {
+  margin-top: 0.5rem;
+}
+.login-container .login-btns .login {
+  color: var(--secondary-color);
+  background-color: var(--ecomm-primary-color);
+}
+
+.login-credential .login-email,
+.login-credential .login-password,
+.login-credential .confirm-password {
+  font-size: 1.5rem;
+  position: relative;
+}
+
+.login-btns .login{
+  border: none;
+  cursor: pointer;
+  font-size: 1.7rem;
+  font-weight: 500;
+
+}
+.con .forgot-pwd{
+  font-weight: 300;
+  color: blue;
+}
+.remember-me{
+  color: var(--black-color);
+  font-weight: 300;
+}
+.new-account{
+  border: none;
+  background: none;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.login-credential .confirm-password {
+  margin-top: 2rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .login-container {
+    width: 50%;
   }
-  
-  .login-container .login-btns .login {
-    color: var(--secondary-color);
-    background-color: var(--ecomm-primary-color);
+}
+
+@media screen and (max-width: 900px) {
+  .login-container {
+    width: 70%;
   }
-  
-  .login-credential .login-email,
-  .login-credential .login-password,
-  .login-credential .confirm-password {
-    font-size: 1.2rem;
-    position: relative;
+}
+
+@media screen and (max-width: 500px) {
+  .login-container {
+    width: 90%;
   }
-  
-  
-  .login-credential .confirm-password {
-    margin-top: 2rem;
-  }
-  
-  @media screen and (max-width: 1200px) {
-    .login-container {
-      width: 50%;
-    }
-  }
-  
-  @media screen and (max-width: 900px) {
-    .login-container {
-      width: 70%;
-    }
-  }
-  
-  @media screen and (max-width: 500px) {
-    .login-container {
-      width: 90%;
-    }
-  }
-  
+}

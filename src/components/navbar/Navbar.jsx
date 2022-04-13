@@ -1,10 +1,25 @@
 import "./navbar.css";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../hooks/context/auth-context";
+import { useNavigate } from "react-router-dom";
+
 const Navbar = () => {
+  const navigate = useNavigate();
+  const { authState, authDispatch } = useAuth();
+
+  const logoutHandler = () => {
+    navigate("/");
+    localStorage.removeItem("token");
+    authDispatch({ type: "LOGOUT" });
+  };
+
+
   return (
     <header className="header">
       <div className="logo">
-        <Link to="/" className="logo-text">ByBook</Link>
+        <Link to="/" className="logo-text">
+          ByBook
+        </Link>
       </div>
 
       <div className="search-container">
@@ -17,10 +32,19 @@ const Navbar = () => {
       <div className="action-icon">
         <ul className="dropdown">
           <li className="btn">
-            <Link className="link" to="/login">
-              Login
-            </Link>
-            <div className="dropdown-menu">
+          
+            {localStorage.getItem("token") ? (
+              <button className="link-btn" onClick={logoutHandler}>
+                  Logout
+              </button>
+            ) : (
+              <button className="link-btn">
+                <Link className="link" to="/login">
+                  Login
+                </Link>
+              </button>
+            )}
+            {/* <div className="dropdown-menu">
               <ul>
                 <li>
                   <Link to="">
@@ -40,7 +64,7 @@ const Navbar = () => {
                   </Link>
                 </li>
               </ul>
-            </div>
+            </div> */}
           </li>
         </ul>
         <Link to="/wishlist" className="icon">
