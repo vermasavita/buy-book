@@ -22,7 +22,7 @@
 .grid-container .cart .img-container .product-action-icon li {
   background: none;
   margin: 0;
-  border: 1px solid rgb(174, 172, 172);
+  /* border: 1px solid rgb(174, 172, 172); */
   cursor: pointer;
 }
 

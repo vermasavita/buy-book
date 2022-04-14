@@ -1,17 +1,22 @@
 const WishlistCard = ({
+  wishlistId,
   wishlistImg,
   wishlistTitle,
   wishlistAuthor,
   wishlistPrice,
   wishlistRating,
+  callRemoveWishlistHandler,
 }) => {
   return (
-    <div className="cart">
+    <div className="cart" key={wishlistId}>
       <div className="img-container">
         <img src={wishlistImg} alt="boom-image" />
         <ul className="product-action-icon">
-          <li>
-            <i className="bx bx-heart" aria-hidden="true"></i>
+          <li onClick={() => callRemoveWishlistHandler(wishlistId)}>
+            <i
+              className='bx bxs-heart'
+              aria-hidden="true"
+            />
           </li>
         </ul>
       </div>

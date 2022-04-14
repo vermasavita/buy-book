@@ -10,7 +10,6 @@ const Cart = () => {
   const { cart } = cartState;
   const { authState } = useAuth();
   const { token } = authState;
-  console.log(cart)
 
   const callUpdateQtyCart = (_id, actionType) => {
     updateCartQty(_id, token, actionType, cartDispatch);

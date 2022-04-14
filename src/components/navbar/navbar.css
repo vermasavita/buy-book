@@ -86,6 +86,9 @@ html {
   color: var(--secondary-color);
 }
 
+.header .action-icon .cart-icon{
+  margin-left: 2rem;
+}
 .header .action-icon .icon span {
   color: var(--secondary-color);
   background-color: var(--red-color);
