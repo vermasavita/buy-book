@@ -2,17 +2,28 @@ import "./cart.css";
 import { CartItem } from "./components/CartItem";
 import { Bill } from "./components/Biil";
 import { useCart } from "../../hooks";
+import { updateCartQty, removeFromCartHandler} from "../../service";
+import { useAuth } from "../../hooks";
 
 const Cart = () => {
-  const { cartState } = useCart();
+  const { cartState, cartDispatch } = useCart();
   const { cart } = cartState;
- 
+  const { authState } = useAuth();
+  const { token } = authState;
+  console.log(cart)
 
+  const callUpdateQtyCart = (_id, actionType) => {
+    updateCartQty(_id, token, actionType, cartDispatch);
+  };
+
+  const callRemoveFromCartHandler = (_id) => {
+    removeFromCartHandler(_id, token, cartDispatch);
+  }
+  
   return (
     <div className="container">
       <div>
         <h1>My Cart</h1>
-        {/* <p>Total Item in your cart: 3s</p> */}
       </div>
       <div className="checkout">
         <div className="myCart">
@@ -25,6 +36,9 @@ const Cart = () => {
                   cartImg={cartProduct.image}
                   cartTitle={cartProduct.title}
                   cartPrice={cartProduct.price}
+                  cartQuantity={cartProduct.qty}
+                  callUpdateQtyCart={callUpdateQtyCart}
+                  callRemoveFromCartHandler={callRemoveFromCartHandler}
                 />
               );
             })}
