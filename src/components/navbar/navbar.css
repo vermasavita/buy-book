@@ -1,7 +1,7 @@
 :root {
-  --ecomm-primary-color: rgba(15, 141, 173, 0.9);
+  --ecomm-primary-color: rgba(97, 54, 54, 0.9);
   --secondary-color: rgb(255, 255, 255);
-  --head-text-color: rgb(195, 203, 205);
+  --head-text-color: rgb(225, 229, 230);
   --light-grey-color: rgb(238, 235, 235);
   --yellow-color: rgba(243, 243, 13, 0.692);
   --red-color: red;
@@ -78,30 +78,10 @@ html {
   align-items: center;
 }
 
-.dropdown .dropdown-menu li {
-  display: flex;
-  align-items: center;
-  color: var(--ecomm-primary-color);
+.header .action-icon .icon {
+  cursor: pointer;
 }
 
-.dropdown .dropdown-menu li a {
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  padding: 1rem 0rem;
-}
-
-.dropdown .dropdown-menu li a i {
-  height: 2.5rem;
-  width: 2.5rem;
-  color: var(--ecomm-primary-color);
-  text-align: center;
-  margin-right: 1rem;
-}
-
-.dropdown .btn:hover .dropdown-menu {
-  display: block;
-}
 .header .action-icon .icon i {
   color: var(--secondary-color);
 }

@@ -1,16 +1,14 @@
 import "./authentication.css";
-import { Navbar } from "./../../components/navbar/Navbar";
-import { Footer } from "./../../components/footer/Footer";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../hooks/context/auth-context";
+import { useAuth } from "../../hooks";
 import { useState } from "react";
 
 const Login = () => {
   const navigate = useNavigate();
   const { authDispatch } = useAuth();
-  const [userCredential, setUserCredential] = useState({
+  const [user, setUser] = useState({
     email: "",
     password: "",
   });
@@ -21,18 +19,18 @@ const Login = () => {
   };
   const changeHandler = (e) => {
     const { id, value } = e.target;
-    setUserCredential({ ...userCredential, [id]: value });
+    setUser({ ...user, [id]: value });
   };
 
   const guestUserCredentialHandler = (event) => {
     event.preventDefault();
-    setUserCredential(guestUserCredential);
+    setUser(guestUserCredential);
   };
 
   const loginHandler = async (event) => {
     event.preventDefault();
     try {
-      const repsonse = await axios.post("api/auth/login", userCredential);
+      const repsonse = await axios.post("api/auth/login", user);
       if (repsonse.status === 200) {
         localStorage.setItem("token", repsonse.data.encodedToken);
         localStorage.setItem(
@@ -43,7 +41,7 @@ const Login = () => {
         authDispatch({
           type: "LOGIN",
           payload: {
-            userCredential: repsonse.data.foundUser,
+            user: repsonse.data.foundUser,
             token: repsonse.data.encodedToken,
           },
         });
@@ -62,7 +60,6 @@ const Login = () => {
   };
   return (
     <div className="container">
-      <Navbar />
       <div className="box">
         <form className="login-container" method="post">
           <h1>Login</h1>
@@ -74,7 +71,7 @@ const Login = () => {
                 name="email"
                 id="email"
                 placeholder="adarshbalika@gmail.com"
-                value={userCredential.email}
+                value={user.email}
                 required
                 onChange={changeHandler}
               />
@@ -87,7 +84,7 @@ const Login = () => {
                 name="password"
                 id="password"
                 placeholder="**********"
-                value={userCredential.password}
+                value={user.password}
                 required
                 onChange={changeHandler}
               />
@@ -122,7 +119,6 @@ const Login = () => {
           </Link>
         </form>
       </div>
-      <Footer />
     </div>
   );
 };

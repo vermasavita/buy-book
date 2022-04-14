@@ -2,7 +2,7 @@ import { CategoryFilter } from "./Filter/CategoryFilter";
 import { PriceRangeFilter } from "./Filter/PriceRange";
 import { SortPriceFilter } from "./Filter/SortPrice";
 import { RatingFilter } from "./Filter/Rating";
-import { useFilter } from "./../../../hooks/context/filter-context";
+import { useFilter } from "../../../hooks";
 import "./filter.css";
 
 const Filter = () => {

@@ -1,12 +1,9 @@
 import { WishlistCard } from "./component/WishlistCard";
-import { Navbar} from './../../components/navbar/Navbar';
-import {Footer} from './../../components/footer/Footer';
 import "./wishlist.css";
 
 const Wishlist = () => {
   return (
     <div className="container">
-      <Navbar />
       <div>
         <h1>MyWishlist</h1>
         {/* <p>Total item in your wishlist cart: 4</p> */}
@@ -51,7 +48,6 @@ const Wishlist = () => {
           />
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

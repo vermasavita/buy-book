@@ -1,13 +1,10 @@
 import { ProductCategory } from "./components/ProductCategory";
 import './home.css'
 import './../Cart/cart.css'
-import { Navbar} from './../../components/navbar/Navbar';
-import {Footer} from './../../components/footer/Footer';
 
 const Home = () => {
   return (
     <div className="container">
-      <Navbar />
       <div className="hero-banner-container">
         <img
           src="https://dispatch.barnesandnoble.com/content/dam/ccr/homepage/daily/2022/02/01/Gateway_Billboard-C_OMP.jpg"
@@ -20,7 +17,6 @@ const Home = () => {
           <ProductCategory productCategoryImg={"https://media.istockphoto.com/photos/heart-book-page-vintage-effect-style-pictures-picture-id503130452?b=1&k=20&m=503130452&s=170667a&w=0&h=esjZFj1zLl4zGvVDTA-hnmBjVRolj1PcZNu6cn8xLSE="}/>
           <ProductCategory productCategoryImg={"https://media.istockphoto.com/photos/plays-of-shakespeare-picture-id184986309?b=1&k=20&m=184986309&s=170667a&w=0&h=qxAf7tksVx3TZC2KgXhA6_3BbwjXvnuWiak2hWqVLaI="}/>
       </div>
-      <Footer/>
     </div>
   );
 };
