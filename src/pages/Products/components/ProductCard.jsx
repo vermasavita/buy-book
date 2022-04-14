@@ -1,14 +1,15 @@
-import { Link } from "react-router-dom";
-
 const ProductCard = ({
+  productId,
   productImg,
   productTitle,
   productAuthor,
   productPrice,
   productRating,
+  checkUserAction,
+  userRouteHandler
 }) => {
   return (
-    <div className="cart">
+    <div className="cart" key={productId}>
       <div className="img-container">
         <img src={productImg} alt="" />
         <ul className="product-action-icon">
@@ -29,7 +30,13 @@ const ProductCard = ({
           </div>
         </div>
       </div>
-      <button className="add-to-cart">Add to Cart</button>
+
+      <button
+        className="add-to-cart"
+        onClick={() => userRouteHandler(productId)}
+      >
+        {checkUserAction(productId)}
+      </button>
     </div>
   );
 };

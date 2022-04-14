@@ -1,6 +1,6 @@
-const CartItem = ({ cartImg, cartTitle, cartPrice }) => {
+const CartItem = ({ cartId, cartImg, cartTitle, cartPrice }) => {
   return (
-    <div className="shopping-cart">
+    <div className="shopping-cart" key={cartId}>
       <div className="image">
         <img src={cartImg} alt="book-image" />
       </div>
@@ -14,11 +14,11 @@ const CartItem = ({ cartImg, cartTitle, cartPrice }) => {
 
         <div className="qty">
           <button>
-            <i class="bx bx-minus"></i>
+            <i className="bx bx-minus"></i>
           </button>
           <p>1 </p>
           <button>
-            <i class="bx bx-plus"></i>
+            <i className="bx bx-plus"></i>
           </button>
         </div>
 
