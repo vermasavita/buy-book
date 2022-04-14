@@ -1,4 +1,4 @@
-import { useFilter } from "../../../../hooks/context/filter-context";
+import { useFilter } from "../../../../hooks";
 
 const RatingFilter = () => {
   const { filterState, filterDispatch } = useFilter();

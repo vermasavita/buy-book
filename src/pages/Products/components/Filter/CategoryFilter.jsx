@@ -1,5 +1,4 @@
-import { useFilter } from "../../../../hooks/context/filter-context";
-
+import { useFilter } from "../../../../hooks";
 const CategoryFilter = () => {
   const { filterState, filterDispatch } = useFilter();
   return (

@@ -1,10 +1,8 @@
 import "./authentication.css";
-import { Navbar } from "./../../components/navbar/Navbar";
-import { Footer } from "./../../components/footer/Footer";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../hooks/context/auth-context";
+import { useAuth } from "../../hooks";
 import { useState } from "react";
 
 const Login = () => {
@@ -62,7 +60,6 @@ const Login = () => {
   };
   return (
     <div className="container">
-      <Navbar />
       <div className="box">
         <form className="login-container" method="post">
           <h1>Login</h1>
@@ -122,7 +119,6 @@ const Login = () => {
           </Link>
         </form>
       </div>
-      <Footer />
     </div>
   );
 };
