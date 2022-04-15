@@ -72,6 +72,30 @@
   bottom: -16.5rem;
 }
 
+.buy-book-btn-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20rem;
+  text-decoration: none;
+}
+
+
+.buy-book-btn{
+  font-size: 2rem;
+  border: none;
+  padding: 1rem 1.5rem;
+  background-color: var(--ecomm-primary-color);
+  color: var(--secondary-color);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  cursor: pointer;
+}
+
+
+.buy-book-btn:active{
+  transform: translateY(4px)
+}
+
 @media screen and (max-width: 800px) {
   .checkout {
     flex-direction: column;
