@@ -6,7 +6,7 @@ const CartItem = ({
   cartQuantity,
   callUpdateQtyCart,
   callRemoveFromCartHandler,
-  // callMoveToWishlistHandler
+  callMoveToWishlistHandler,
 }) => {
   return (
     <div className="shopping-cart" key={cartId}>
@@ -42,11 +42,15 @@ const CartItem = ({
           Remove
         </button>
 
-        <button className="cart-btn" >Add to Wishlist</button>
+        <button
+          className="cart-btn"
+          onClick={() => callMoveToWishlistHandler(cartId)}
+        >
+          Add to Wishlist
+        </button>
       </div>
     </div>
   );
 };
 
 export { CartItem };
-// onClick={callMoveToWishlistHandler(cartId)}

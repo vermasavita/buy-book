@@ -11,8 +11,6 @@ const Wishlist = () => {
   const { wishlist } = wishlistState;
   const { authState } = useAuth();
   const { token } = authState;
-  console.log(wishlist);
-
 
   const callRemoveWishlistHandler = (_id) => {
     removeFromWishlist(_id, token, wishlistDispatch);
