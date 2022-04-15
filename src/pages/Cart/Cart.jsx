@@ -1,8 +1,14 @@
 import "./cart.css";
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
 import { CartItem } from "./components/CartItem";
 import { Bill } from "./components/Biil";
 import { useCart, useWishlist } from "../../hooks";
-import { updateCartQty, removeFromCartHandler } from "../../service";
+import {
+  updateCartQty,
+  removeFromCartHandler,
+  getCartItemHandler,
+} from "../../service";
 import { useAuth } from "../../hooks";
 import { moveToWishlistHandler, cartBill } from "../../utils";
 
@@ -12,8 +18,7 @@ const Cart = () => {
   const { wishlistState, wishlistDispatch } = useWishlist();
   const { authState } = useAuth();
   const { token } = authState;
-  const { cartQuantity, grossPrice, totalPrice } =
-    cartBill(cart);
+  const { cartQuantity, grossPrice, totalPrice } = cartBill(cart);
 
   const callUpdateQtyCart = (_id, actionType) => {
     updateCartQty(_id, token, actionType, cartDispatch);
@@ -35,6 +40,21 @@ const Cart = () => {
     );
     removeFromCartHandler(_id, token, cartDispatch);
   };
+
+  const getCartItems = async () => {
+    try {
+      const response = await getCartItemHandler(token);
+      if (response.status === 200) {
+        cartDispatch({ type: "GET_CART", payload: response.data.cart });
+      } else {
+        throw new Error();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => getCartItems(), []);
 
   return (
     <div className="container">
@@ -67,7 +87,7 @@ const Cart = () => {
               <Bill
                 cartQuantity={cartQuantity}
                 cartGrossPrice={grossPrice}
-                cartTaxAmount={Math.round((grossPrice * 5)/100)}
+                cartTaxAmount={Math.round((grossPrice * 5) / 100)}
                 cartShipingPrice={40}
                 cartTotalPrice={totalPrice}
               />
@@ -76,12 +96,12 @@ const Cart = () => {
         </>
       ) : (
         <>
-        <div className="empty-cart-conatiner">
-        <h1>Cart is empty</h1>
-        <div className="buy-book-btn-container">
-        <button className="buy-book-btn">Buy Book Now</button>
-        </div>
-        </div>   
+          <div className="empty-cart-conatiner">
+            <h1>Cart is empty</h1>
+            <Link to="/products" className="buy-book-btn-container">
+              <button className="buy-book-btn">Buy Book Now</button>
+            </Link>
+          </div>
         </>
       )}
     </div>

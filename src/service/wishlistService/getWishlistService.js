@@ -17,7 +17,7 @@ const getWishlistItem = async (token, wishlistDispatch) => {
       throw new Error();
     }
   } catch (error) {
-    console.log(response.data);
+    console.log(error);
   }
 };
 
