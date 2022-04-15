@@ -6,6 +6,7 @@ const WishlistCard = ({
   wishlistPrice,
   wishlistRating,
   callRemoveWishlistHandler,
+  callMoveToCartHandler
 }) => {
   return (
     <div className="cart" key={wishlistId}>
@@ -32,11 +33,12 @@ const WishlistCard = ({
         </div>
       </div>
 
-      <div className="add-to-cart">
-        <a href="">Move to Cart</a>
-      </div>
+      <button className="add-to-cart" onClick={() => callMoveToCartHandler(wishlistId)} >
+        Move to Cart
+      </button>
     </div>
   );
 };
 
 export { WishlistCard };
+// 
