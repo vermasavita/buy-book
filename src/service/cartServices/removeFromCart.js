@@ -14,7 +14,7 @@ const removeFromCartHandler = async (_id, token, cartDispatch) => {
       throw new Error();
     }
   } catch (error) {
-    alert(error);
+    console.log(error);
   }
 };
 

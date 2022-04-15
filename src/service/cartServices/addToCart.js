@@ -17,7 +17,7 @@ const addToCart = async (product, token, cartDispatch) => {
   }
 
   catch (error) {
-    alert(error);
+    console.log(error);
 
   }
 };

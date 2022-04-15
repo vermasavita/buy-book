@@ -1,5 +1,5 @@
 :root {
-  --ecomm-primary-color: rgba(97, 54, 54, 0.9);
+  --ecomm-primary-color: #035397;
   --secondary-color: rgb(255, 255, 255);
   --head-text-color: rgb(225, 229, 230);
   --light-grey-color: rgb(238, 235, 235);
@@ -13,8 +13,8 @@ html {
 }
 
 .header {
-  background-color: var(--ecomm-primary-color);
-  height: 4.5rem;
+  background-color: var(--secondary-color);
+  height: 5.5rem;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
@@ -25,21 +25,25 @@ html {
 }
 
 .header .logo .logo-text{
+  color: var(--ecomm-primary-color) !important;
+}
+
+.header .logo .logo-text{
   color: var(--secondary-color);
   text-decoration: none;
 }
 
 .search-container {
-  border: 1px solid var(--light-grey-color);
   border-radius: 10px;
 }
 
 .header .search-container #search {
   color: black;
+ border-color: var(--black-color);
 }
 
 .action-icon .btn {
-  background-color: var(--secondary-color);
+  background-color: var(--ecomm-primary-color);
   box-shadow: none;
   padding: 0.5rem;
   position: relative;
@@ -48,9 +52,12 @@ html {
 .action-icon .btn a {
   text-align: center;
   margin: 0;
-  color: var(--black-color);
+  color: var(--secondary-color);
 }
 
+.action-icon .link-btn{
+  color: var(--secondary-color);
+}
 .dropdown li {
   list-style: none;
 }
@@ -83,9 +90,12 @@ html {
 }
 
 .header .action-icon .icon i {
-  color: var(--secondary-color);
+  color: var(--ecomm-primary-color);
 }
 
+.header .action-icon .cart-icon{
+  margin-left: 2rem;
+}
 .header .action-icon .icon span {
   color: var(--secondary-color);
   background-color: var(--red-color);

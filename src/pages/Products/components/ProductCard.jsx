@@ -6,15 +6,24 @@ const ProductCard = ({
   productPrice,
   productRating,
   checkUserAction,
-  userRouteHandler
+  userRouteHandler,
+  wishlistActionHandler,
+  checkWishlistActionHandler,
 }) => {
   return (
     <div className="cart" key={productId}>
       <div className="img-container">
         <img src={productImg} alt="" />
         <ul className="product-action-icon">
-          <li>
-            <i className="bx bx-heart" aria-hidden="true" />
+          <li onClick={() => checkWishlistActionHandler(productId)}>
+            <i
+              className={`bx ${
+                wishlistActionHandler(productId) === "remove"
+                  ? "bxs-heart"
+                  : "bx-heart"
+              }`}
+              aria-hidden="true"
+            />
           </li>
         </ul>
       </div>
@@ -26,7 +35,7 @@ const ProductCard = ({
         <div className="product-price">
           <h2>₹ {productPrice}</h2>
           <div className="product-rating">
-            <p>{productRating}</p>
+            <p className="p-rating">{productRating} <i class='bx bxs-star'></i></p>
           </div>
         </div>
       </div>
