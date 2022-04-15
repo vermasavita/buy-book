@@ -35,7 +35,7 @@ const ProductCard = ({
         <div className="product-price">
           <h2>₹ {productPrice}</h2>
           <div className="product-rating">
-            <p>{productRating}</p>
+            <p className="p-rating">{productRating} <i class='bx bxs-star'></i></p>
           </div>
         </div>
       </div>

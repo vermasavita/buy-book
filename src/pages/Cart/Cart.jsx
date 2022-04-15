@@ -49,6 +49,7 @@ const Cart = () => {
                   cartImg={cartProduct.image}
                   cartTitle={cartProduct.title}
                   cartPrice={cartProduct.price}
+                  cartRating={cartProduct.rating}
                   cartQuantity={cartProduct.qty}
                   callUpdateQtyCart={callUpdateQtyCart}
                   callRemoveFromCartHandler={callRemoveFromCartHandler}

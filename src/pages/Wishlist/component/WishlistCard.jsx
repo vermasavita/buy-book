@@ -30,6 +30,9 @@ const WishlistCard = ({
 
         <div className="product-price">
           <h2>₹{wishlistPrice}</h2>
+          <div className="product-rating">
+            <p className="p-rating">{wishlistRating} <i class='bx bxs-star'></i></p>
+          </div>
         </div>
       </div>
 

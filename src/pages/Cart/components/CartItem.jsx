@@ -3,6 +3,7 @@ const CartItem = ({
   cartImg,
   cartTitle,
   cartPrice,
+  cartRating,
   cartQuantity,
   callUpdateQtyCart,
   callRemoveFromCartHandler,

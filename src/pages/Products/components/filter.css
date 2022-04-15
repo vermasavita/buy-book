@@ -6,16 +6,16 @@
 .filter .filter-heading {
   display: flex;
   justify-content: space-between;
+  font-size: 2rem !important;
 }
 
-.filter .filter-heading .clear-btn {
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  text-decoration: underline;
-  cursor: pointer;
+.filter .filter-heading .filter-name{
+  display: block;
+  font-size: 2rem;
 }
-
+.filter .filter-heading .clear-btn{
+  display: block;
+}
 .filter-heading,
 .price-range,
 .product-category,
