@@ -1,4 +1,5 @@
 import "./wishlist.css";
+import { Link } from 'react-router-dom';
 import { useEffect } from "react";
 import { WishlistCard } from "./component/WishlistCard";
 import { getWishlistItem, removeFromWishlist } from "../../service";
@@ -17,7 +18,7 @@ const Wishlist = () => {
   };
 
   const callMoveToCartHandler = (_id) => {
-    const item = wishlist.find(item => item._id === _id);
+    const item = wishlist.find((item) => item._id === _id);
     moveToCartHandler(_id, item, token, cartState, cartDispatch);
     removeFromWishlist(_id, token, wishlistDispatch);
   };
@@ -26,25 +27,38 @@ const Wishlist = () => {
 
   return (
     <div className="container">
-      <div>
-        <h1>MyWishlist</h1>
-        <div className="grid-container">
-          {wishlist.length > 0 &&
-            wishlist.map((wishlistProduct) => (
-              <WishlistCard
-                key={wishlistProduct._id}
-                wishlistId={wishlistProduct._id}
-                wishlistImg={wishlistProduct.image}
-                wishlistTitle={wishlistProduct.title}
-                wishlistAuthor={wishlistProduct.author}
-                wishlistPrice={wishlistProduct.price}
-                wishlistRating={wishlistProduct.rating}
-                callRemoveWishlistHandler={callRemoveWishlistHandler}
-                callMoveToCartHandler={callMoveToCartHandler}
-              />
-            ))}
-        </div>
-      </div>
+      {wishlist.length !== 0 ? (
+        <>
+          <div>
+            <h1>MyWishlist</h1>
+            <div className="grid-container">
+              {wishlist.length > 0 &&
+                wishlist.map((wishlistProduct) => (
+                  <WishlistCard
+                    key={wishlistProduct._id}
+                    wishlistId={wishlistProduct._id}
+                    wishlistImg={wishlistProduct.image}
+                    wishlistTitle={wishlistProduct.title}
+                    wishlistAuthor={wishlistProduct.author}
+                    wishlistPrice={wishlistProduct.price}
+                    wishlistRating={wishlistProduct.rating}
+                    callRemoveWishlistHandler={callRemoveWishlistHandler}
+                    callMoveToCartHandler={callMoveToCartHandler}
+                  />
+                ))}
+            </div>
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="empty-cart-conatiner">
+            <h1>Wishlist is empty</h1>
+            <Link to="/products" className="buy-book-btn-container">
+              <button className="buy-book-btn">Make Your Wishlist</button>
+            </Link>
+          </div>
+        </>
+      )}
     </div>
   );
 };

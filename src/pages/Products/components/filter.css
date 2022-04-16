@@ -6,16 +6,27 @@
 .filter .filter-heading {
   display: flex;
   justify-content: space-between;
-  font-size: 2rem !important;
+  align-items: center;
 }
 
 .filter .filter-heading .filter-name{
-  display: block;
   font-size: 2rem;
+  margin-top: 0;
 }
 .filter .filter-heading .clear-btn{
-  display: block;
+  border: none;
+  background: none;
+  font-size: 1.7rem;
+  color: var(--ecomm-primary-color);
+  text-decoration: underline;
+
+cursor: pointer;
 }
+.filter .filter-heading .clear-btn:hover{
+  color: var( --red-color);
+
+}
+
 .filter-heading,
 .price-range,
 .product-category,
@@ -24,7 +35,6 @@
   font-size: 1.8rem;
   margin-bottom: 4rem;
   text-align: start;
-  flex-direction: column;
 }
 
 .product-category .preference,

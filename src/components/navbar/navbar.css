@@ -1,7 +1,7 @@
 :root {
   --ecomm-primary-color: #035397;
   --secondary-color: rgb(255, 255, 255);
-  --head-text-color: rgb(225, 229, 230);
+  --head-text-color: rgb(203, 206, 207);
   --light-grey-color: rgb(238, 235, 235);
   --yellow-color: rgba(243, 243, 13, 0.692);
   --red-color: red;
@@ -38,8 +38,8 @@ html {
 }
 
 .header .search-container #search {
-  color: black;
- border-color: var(--black-color);
+  border-color: var(--head-text-color);
+ color: var(--black-color);
 }
 
 .action-icon .btn {
