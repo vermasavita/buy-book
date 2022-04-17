@@ -12,12 +12,12 @@ const Filter = () => {
     <div className="filter">
       <div className="filter-heading">
         <p className="filter-name">Filters</p>
-        <Link to=""
+        <button
           className="clear-btn"
           onClick={() => filterDispatch({ type: "RESET", payload: {} })}
         >
           Clear
-        </Link>
+        </button>
       </div>
       <div>
         <PriceRangeFilter />
