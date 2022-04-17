@@ -49,15 +49,11 @@ ByBook store is an online ecommerce store for book lovers.
 - /src
    - /backend
    - /components
-   - /constants
-   - /context
    - /hooks
-   - /redux
-   - /screens
-   - /services
-   - /utilities
+   - /pages
+   - /utils
    - App.js
-   - App.module.css
+   - services
    - index.css
    - index.js
    - server.js
