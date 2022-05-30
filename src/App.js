@@ -29,7 +29,6 @@ function App() {
         <Route path="/signup" element={<Signup />}/> 
         <Route path="/mock" element={<Mockman/>}/>
       </Routes> 
-      <Footer/>
     </div>
   );
 }

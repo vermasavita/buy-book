@@ -102,7 +102,7 @@ const ProductListing = () => {
         <Filter />
         {productLoader ? (
           <h1>Loading...</h1>
-        ) : (
+        ) : category.length > 0 ? (
           <div className="grid-container">
             {category.map((product) => (
               <ProductCard
@@ -120,6 +120,8 @@ const ProductListing = () => {
               />
             ))}
           </div>
+        ) : (
+          <div className="no-data-error">No product found</div>
         )}
       </div>
     </div>
