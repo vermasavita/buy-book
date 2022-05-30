@@ -5,6 +5,7 @@ import { makeServer } from "./server";
 import { BrowserRouter } from "react-router-dom";
 import { FilterProvider, CartProvider, AuthProvider } from "./hooks";
 import { WishlistProvider } from "./hooks/context/wishlist-context";
+import './index.css';
 
 // Call make Server
 makeServer();

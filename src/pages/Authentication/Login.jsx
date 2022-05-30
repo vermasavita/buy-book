@@ -4,6 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -45,7 +46,7 @@ const Login = () => {
             token: repsonse.data.encodedToken,
           },
         });
-
+        toast.success("Successfully Logged In");
         navigate("/");
       } else if (repsonse.status === 401) {
         throw new Error("Enter correct password");
@@ -55,7 +56,7 @@ const Login = () => {
         throw new Error("Server error");
       }
     } catch (error) {
-      console.log(error);
+      toast.error(error.response.data.errors[0]);
     }
   };
   return (
