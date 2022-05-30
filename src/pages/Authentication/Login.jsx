@@ -91,17 +91,6 @@ const Login = () => {
             </div>
           </div>
 
-          <div className="con">
-            <div className="remember-me">
-              <input type="checkbox" id="remember-box" required />
-              <label htmlFor="remember-box">Remember me</label>
-            </div>
-
-            <Link to="/" className="forgot-pwd">
-              Forgot your password?
-            </Link>
-          </div>
-
           <div className="login-btns">
             <button
               className="new-account"
