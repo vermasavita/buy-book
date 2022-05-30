@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 const Signup = () => {
   const { authDispatch } = useAuth();
   const navigate = useNavigate();
-  const [ error, setError] = useState(false)
+  const [error, setError] = useState(false);
   const [userCredential, setUserCredential] = useState({
     email: "",
     password: "",
@@ -22,38 +22,42 @@ const Signup = () => {
   };
 
   const checkPassword = () => {
-    userCredential.password !== userCredential.confirmPassword
-      ? setError("Password doesn't match")
-      : setError("");
-  };
-
-  const signUpHandler = async (event) => {
-    event.preventDefault();
-    try {
-      const repsonse = await axios.post("api/auth/signup/", userCredential);
-      if (repsonse.status === 201) {
-        authDispatch({
-          type: "SIGNUP",
-          payload: {
-            user: repsonse.data.createdUser,
-            token: repsonse.data.encodedToken,
-          },
-        });
-        toast.success("Successfully Signed Up");
-        navigate("/");
-      } 
-      else if (repsonse.status === 201) {
-        throw new Error("User already have an account");
-      }
-      else if (repsonse.status === 201) {
-        throw new Error("Server Error");
-      }
-      
-    } catch (error) {
-      toast.error(error.response.data.errors[0]);
+    if (user.password !== user.confirmPassword) {
+      toast.error("Password doesn't match");
+    } else {
+      return true;
     }
   };
-  
+  const signUpHandler = async (event) => {
+    event.preventDefault();
+    if (checkInputFields()) {
+      if (checkPassword()) {
+        try {
+          const repsonse = await axios.post("api/auth/signup/", userCredential);
+          if (repsonse.status === 201) {
+            authDispatch({
+              type: "SIGNUP",
+              payload: {
+                user: repsonse.data.createdUser,
+                token: repsonse.data.encodedToken,
+              },
+            });
+            toast.success("Successfully Signed Up");
+            navigate("/");
+          } else if (repsonse.status === 201) {
+            throw new Error("User already have an account");
+          } else if (repsonse.status === 201) {
+            throw new Error("Server Error");
+          }
+        } catch (error) {
+          toast.error(error.response.data.errors[0]);
+        }
+      }
+    } else {
+      toast.error("Enter all the fields");
+    }
+  };
+
   return (
     <div className="container">
       <div className="box">

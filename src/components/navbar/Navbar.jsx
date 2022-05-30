@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../../hooks/context/auth-context";
 import { useNavigate } from "react-router-dom";
 import { useCart, useWishlist } from "../../hooks";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -17,6 +18,7 @@ const Navbar = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     authDispatch({ type: "LOGOUT" });
+    toast.success("Successfully Logged Out");
   };
 
   const cartRouteHandler = () => {
