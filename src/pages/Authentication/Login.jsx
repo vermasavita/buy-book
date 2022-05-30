@@ -30,28 +30,32 @@ const Login = () => {
 
   const loginHandler = async (event) => {
     event.preventDefault();
-    try {
-      const repsonse = await axios.post("api/auth/login", user);
-      if (repsonse.status === 200) {
-        authDispatch({
-          type: "LOGIN",
-          payload: {
-            user: repsonse.data.foundUser,
-            token: repsonse.data.encodedToken,
-          },
-        });
-        
-        toast.success("Successfully Logged In");
-        navigate("/");
-      } else if (repsonse.status === 401) {
-        throw new Error("Enter correct password");
-      } else if (response.status === 404) {
-        throw new Error("Email not found");
-      } else if (response.status === 500) {
-        throw new Error("Server error");
+    if (user.email !== "" && user.password !== "") {
+      try {
+        const repsonse = await axios.post("api/auth/login", user);
+        if (repsonse.status === 200) {
+          authDispatch({
+            type: "LOGIN",
+            payload: {
+              user: repsonse.data.foundUser,
+              token: repsonse.data.encodedToken,
+            },
+          });
+
+          toast.success("Successfully Logged In");
+          navigate("/");
+        } else if (repsonse.status === 401) {
+          throw new Error("Enter correct password");
+        } else if (response.status === 404) {
+          throw new Error("Email not found");
+        } else if (response.status === 500) {
+          throw new Error("Server error");
+        }
+      } catch (error) {
+        toast.error(error.response.data.errors[0]);
       }
-    } catch (error) {
-      toast.error(error.response.data.errors[0]);
+    } else {
+      toast.error("Enter both the fields");
     }
   };
   return (

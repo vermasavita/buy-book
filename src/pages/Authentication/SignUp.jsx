@@ -21,8 +21,14 @@ const Signup = () => {
     setUserCredential({ ...userCredential, [id]: value });
   };
 
+  const checkInputFields = () => {
+    return (
+      userCredential.email !== "" && userCredential.password !== "" && userCredential.confirmPassword !== ""
+    );
+  };
+
   const checkPassword = () => {
-    if (user.password !== user.confirmPassword) {
+    if (userCredential.password !== userCredential.confirmPassword) {
       toast.error("Password doesn't match");
     } else {
       return true;

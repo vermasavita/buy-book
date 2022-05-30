@@ -7,7 +7,7 @@ const Home = () => {
     <div className="container">
       <div className="hero-banner-container">
         <img
-          src="https://d2g9wbak88g7ch.cloudfront.net/bannerimages/77_inr.jpg"
+          src="https://d2g9wbak88g7ch.cloudfront.net/bannerimages/70_inr.jpg"
           alt="hero-banner"
         />
       </div>
