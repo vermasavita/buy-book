@@ -7,8 +7,8 @@ import { toast } from "react-toastify";
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const { cartState } = useCart();
-  const { wishlistState } = useWishlist();
+  const { cartState, cartDispatch } = useCart();
+  const { wishlistState, wishlistDispatch } = useWishlist();
   const { authState, authDispatch } = useAuth();
   const { cart } = cartState;
   const { wishlist } = wishlistState;
@@ -19,6 +19,8 @@ const Navbar = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     authDispatch({ type: "LOGOUT" });
+    cartDispatch({type: "EMPTY_CART"})
+    wishlistDispatch({type: "EMPTY_WISHLIST"})
     toast.success("Successfully Logged Out");
   };
 
