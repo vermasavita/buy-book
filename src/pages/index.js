@@ -4,3 +4,4 @@ export { Home } from "./home/Home";
 export { ProductListing } from "./Products/ProductListing";
 export { Cart } from "./Cart/Cart";
 export { Wishlist } from "./Wishlist/Wishlist";
+export { Error404 } from "./Error404/Error404";
