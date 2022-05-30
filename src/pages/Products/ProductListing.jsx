@@ -12,9 +12,11 @@ import {
 import { addToCart, addToWishlist, removeFromWishlist } from "../../service";
 import { useNavigate } from "react-router";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const ProductListing = () => {
   const [products, setProducts] = useState([]);
+  const [productLoader, setProductLoader] = useState(false);
   const navigate = useNavigate();
   const { filterState } = useFilter();
   const { cartState, cartDispatch } = useCart();
@@ -35,6 +37,7 @@ const ProductListing = () => {
       addToCart(product, token, cartDispatch);
     } else {
       navigate("/login");
+      toast.warning("You are not logged in");
     }
   };
 
@@ -73,9 +76,11 @@ const ProductListing = () => {
 
   const loadProductData = async () => {
     try {
+      setProductLoader(true);
       const response = await axios.get(productApi);
       if (response.status === 200) {
         setProducts(response.data.products);
+        setProductLoader(false);
       } else {
         throw new Error();
       }
@@ -95,23 +100,27 @@ const ProductListing = () => {
     <div className="container">
       <div className="product-listing">
         <Filter />
-        <div className="grid-container">
-          {category.map((product) => (
-            <ProductCard
-              key={product._id}
-              productId={product._id}
-              productImg={product.image}
-              productTitle={product.title}
-              productAuthor={product.author}
-              productPrice={product.price}
-              productRating={product.rating}
-              checkUserAction={checkUserAction}
-              userRouteHandler={userRouteHandler}
-              wishlistActionHandler={wishlistActionHandler}
-              checkWishlistActionHandler={checkWishlistActionHandler}
-            />
-          ))}
-        </div>
+        {productLoader ? (
+          <h1>Loading...</h1>
+        ) : (
+          <div className="grid-container">
+            {category.map((product) => (
+              <ProductCard
+                key={product._id}
+                productId={product._id}
+                productImg={product.image}
+                productTitle={product.title}
+                productAuthor={product.author}
+                productPrice={product.price}
+                productRating={product.rating}
+                checkUserAction={checkUserAction}
+                userRouteHandler={userRouteHandler}
+                wishlistActionHandler={wishlistActionHandler}
+                checkWishlistActionHandler={checkWishlistActionHandler}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

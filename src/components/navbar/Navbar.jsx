@@ -12,6 +12,7 @@ const Navbar = () => {
   const { authState, authDispatch } = useAuth();
   const { cart } = cartState;
   const { wishlist } = wishlistState;
+  const { authState: {token}} = useAuth();
 
   const logoutHandler = () => {
     navigate("/");
@@ -38,16 +39,13 @@ const Navbar = () => {
       </div>
 
       <div className="search-container">
-        <form action="">
-          <input id="search" type="search" placeholder="Search" />
-          <label htmlFor="search" className="bx bx-search-alt-2"></label>
-        </form>
+        
       </div>
 
       <div className="action-icon">
         <ul className="dropdown">
           <li className="btn">
-            {localStorage.getItem("token") ? (
+            {token ? (
               <button className="link-btn" onClick={logoutHandler}>
                 Logout
               </button>
