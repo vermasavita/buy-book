@@ -4,6 +4,7 @@ import axios from "axios";
 import { useAuth } from "../../hooks";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Signup = () => {
   const { authDispatch } = useAuth();
@@ -30,11 +31,7 @@ const Signup = () => {
     event.preventDefault();
     try {
       const repsonse = await axios.post("api/auth/signup/", userCredential);
-      // console.log(repsonse.data);
       if (repsonse.status === 201) {
-        localStorage.setItem("token", repsonse.data.encodedToken);
-        localStorage.setItem("user", JSON.stringify(repsonse.data.createdUser));
-
         authDispatch({
           type: "SIGNUP",
           payload: {
@@ -42,6 +39,7 @@ const Signup = () => {
             token: repsonse.data.encodedToken,
           },
         });
+        toast.success("Successfully Signed Up");
         navigate("/");
       } 
       else if (repsonse.status === 201) {
@@ -52,9 +50,10 @@ const Signup = () => {
       }
       
     } catch (error) {
-      console.log(error);
+      toast.error(error.response.data.errors[0]);
     }
   };
+  
   return (
     <div className="container">
       <div className="box">
@@ -98,15 +97,6 @@ const Signup = () => {
                 value={userCredential.confirmPassword}
                 onChange={changeHandler}
               />
-            </div>
-          </div>
-
-          <div className="con">
-            <div className="remember-me">
-              <input type="checkbox" id="remember-box" />
-              <label htmlFor="remember-box">
-                I accept all the Terms & Conditions
-              </label>
             </div>
           </div>
 

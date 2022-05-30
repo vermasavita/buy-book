@@ -15,8 +15,8 @@ const Login = () => {
   });
 
   const guestUserCredential = {
-    email: "adarshbalika@gmail.com",
-    password: "adarshbalika",
+    email: "test@gmail.com",
+    password: "test@123",
   };
   const changeHandler = (e) => {
     const { id, value } = e.target;
@@ -33,12 +33,6 @@ const Login = () => {
     try {
       const repsonse = await axios.post("api/auth/login", user);
       if (repsonse.status === 200) {
-        localStorage.setItem("token", repsonse.data.encodedToken);
-        localStorage.setItem(
-          "user",
-          JSON.stringify(repsonse.data.foundUser)
-        );
-
         authDispatch({
           type: "LOGIN",
           payload: {
@@ -46,6 +40,7 @@ const Login = () => {
             token: repsonse.data.encodedToken,
           },
         });
+        
         toast.success("Successfully Logged In");
         navigate("/");
       } else if (repsonse.status === 401) {
@@ -71,7 +66,7 @@ const Login = () => {
                 type="email"
                 name="email"
                 id="email"
-                placeholder="adarshbalika@gmail.com"
+                placeholder="test@gmail.com"
                 value={user.email}
                 required
                 onChange={changeHandler}
@@ -84,7 +79,7 @@ const Login = () => {
                 type="password"
                 name="password"
                 id="password"
-                placeholder="**********"
+                placeholder="********"
                 value={user.password}
                 required
                 onChange={changeHandler}
