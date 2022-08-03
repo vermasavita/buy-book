@@ -38,7 +38,6 @@ ByBook store is an online ecommerce store for book lovers.
 - React
 - React Router
 - React Context API
-- Razorpay Payment Integration
 - [Mockbee](https://mockbee.netlify.app/) - for mock backend
 
 
