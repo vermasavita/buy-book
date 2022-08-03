@@ -103,23 +103,24 @@ const ProductListing = () => {
         {productLoader ? (
           <h1>Loading...</h1>
         ) : category.length > 0 ? (
-          <div className="grid-container">
-            {category.map((product) => (
-              <ProductCard
-                key={product._id}
-                productId={product._id}
-                productImg={product.image}
-                productTitle={product.title}
-                productAuthor={product.author}
-                productPrice={product.price}
-                productRating={product.rating}
-                checkUserAction={checkUserAction}
-                userRouteHandler={userRouteHandler}
-                wishlistActionHandler={wishlistActionHandler}
-                checkWishlistActionHandler={checkWishlistActionHandler}
-              />
-            ))}
-          </div>
+
+            <div className="grid-container">
+              {category.map((product) => (
+                <ProductCard
+                  key={product._id}
+                  productId={product._id}
+                  productImg={product.image}
+                  productTitle={product.title}
+                  productAuthor={product.author}
+                  productPrice={product.price}
+                  productRating={product.rating}
+                  checkUserAction={checkUserAction}
+                  userRouteHandler={userRouteHandler}
+                  wishlistActionHandler={wishlistActionHandler}
+                  checkWishlistActionHandler={checkWishlistActionHandler}
+                />
+              ))}
+            </div>
         ) : (
           <div className="no-data-error">No product found</div>
         )}
