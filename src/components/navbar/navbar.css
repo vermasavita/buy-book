@@ -24,11 +24,11 @@ html {
   font-family: cursive;
 }
 
-.header .logo .logo-text{
+.header .logo .logo-text {
   color: var(--ecomm-primary-color) !important;
 }
 
-.header .logo .logo-text{
+.header .logo .logo-text {
   color: var(--secondary-color);
   text-decoration: none;
 }
@@ -39,7 +39,7 @@ html {
 
 .header .search-container #search {
   border-color: var(--head-text-color);
- color: var(--black-color);
+  color: var(--black-color);
 }
 
 .action-icon .btn {
@@ -55,13 +55,13 @@ html {
   color: var(--secondary-color);
 }
 
-.action-icon .link-btn{
+.action-icon .link-btn {
   color: var(--secondary-color);
 }
 .dropdown li {
   list-style: none;
 }
-.link-btn{
+.link-btn {
   background: none;
   border: none;
   font-size: 1.8rem;
@@ -93,7 +93,7 @@ html {
   color: var(--ecomm-primary-color);
 }
 
-.header .action-icon .cart-icon{
+.header .action-icon .cart-icon {
   margin-left: 2rem;
 }
 .header .action-icon .icon span {
@@ -106,7 +106,7 @@ html {
     font-size: 50%;
   }
 
-  .logo {
+  .logo-text {
     display: none;
   }
 
@@ -117,4 +117,18 @@ html {
   .main-container {
     margin: 2rem;
   }
+}
+
+.explore-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  margin-left: 3rem;
+}
+
+.bttn {
+  text-decoration: none;
+  font-size: 2rem;
+  color: var(--black-color);
+  cursor: pointer;
 }

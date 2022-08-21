@@ -26,6 +26,7 @@ const Bill = ({cartQuantity, cartGrossPrice, cartTaxAmount, cartShipingPrice, ca
         </h3>
         <hr />
   
+       
       </div>
     );
   };

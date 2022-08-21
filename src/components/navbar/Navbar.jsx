@@ -12,15 +12,17 @@ const Navbar = () => {
   const { authState, authDispatch } = useAuth();
   const { cart } = cartState;
   const { wishlist } = wishlistState;
-  const { authState: {token}} = useAuth();
+  const {
+    authState: { token },
+  } = useAuth();
 
   const logoutHandler = () => {
     navigate("/");
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     authDispatch({ type: "LOGOUT" });
-    cartDispatch({type: "EMPTY_CART"})
-    wishlistDispatch({type: "EMPTY_WISHLIST"})
+    cartDispatch({ type: "EMPTY_CART" });
+    wishlistDispatch({ type: "EMPTY_WISHLIST" });
     toast.success("Successfully Logged Out");
   };
 
@@ -38,11 +40,13 @@ const Navbar = () => {
         <Link to="/" className="logo-text">
           ByBook
         </Link>
+        <button className="explore-btn">
+          <Link className="bttn" to="/products">
+            Explore
+          </Link>
+        </button>
       </div>
-
-      <div className="search-container">
-        
-      </div>
+      <div className="search-container"></div>
 
       <div className="action-icon">
         <ul className="dropdown">
