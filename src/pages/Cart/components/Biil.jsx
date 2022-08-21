@@ -26,9 +26,6 @@ const Bill = ({cartQuantity, cartGrossPrice, cartTaxAmount, cartShipingPrice, ca
         </h3>
         <hr />
   
-        <div className="place-order">
-          <button>Place Order</button>
-        </div>
       </div>
     );
   };

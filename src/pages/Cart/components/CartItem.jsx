@@ -17,7 +17,7 @@ const CartItem = ({
 
       <div className="content">
         <h2>{cartTitle}</h2>
-        <h4>₹ {cartPrice * cartQuantity}</h4>
+        <h4>₹ {cartPrice}</h4>
         <div className="qty">
           <button
             onClick={() =>
